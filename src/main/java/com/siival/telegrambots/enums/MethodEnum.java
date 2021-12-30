@@ -2,7 +2,8 @@ package com.siival.telegrambots.enums;
 
 public enum MethodEnum {
 
-    GETME("getMe")
+    GETME("getMe"),
+    SENDMESSAGE("sendMessage")
     ;
     String methodName;
     MethodEnum(String methodName) {

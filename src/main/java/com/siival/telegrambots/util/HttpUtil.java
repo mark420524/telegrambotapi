@@ -84,8 +84,8 @@ public class HttpUtil {
 
 	}
 
-	public static String postForm(String baseUrl, Map<String,Object> params) throws Exception {
-		OkHttpClient client = createDefaultClient();
+	public static String postForm(String baseUrl, Map<String,Object> params, boolean useProxy,  Proxy proxy) throws Exception {
+		OkHttpClient client = createDefaultClient(useProxy ? proxy : null);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
 		HttpUrl url = build.build();
 		MultipartBody.Builder

@@ -2,8 +2,8 @@ package com.siival.telegrambots.core.factory;
 
 import com.siival.telegrambots.core.method.GetMeMethod;
 import com.siival.telegrambots.core.method.MethodInterface;
+import com.siival.telegrambots.core.method.SendMessageMethod;
 import com.siival.telegrambots.enums.MethodEnum;
-import com.siival.telegrambots.resp.GetMeResponse;
 
 public class MethodFactory {
 
@@ -12,6 +12,9 @@ public class MethodFactory {
         switch (methodEnum){
             case GETME:
                 methodInterface = new GetMeMethod() ;
+                break;
+            case SENDMESSAGE:
+                methodInterface = new SendMessageMethod();
                 break;
             default:break;
 

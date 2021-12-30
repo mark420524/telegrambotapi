@@ -5,7 +5,7 @@ import com.siival.telegrambots.resp.BaseResponse;
 
 import java.net.Proxy;
 
-public abstract class AbstractBots  implements TelegramBots  {
+public abstract class AbstractBots  implements TelegramBots   {
 
     private   String url = "https://api.telegram.org/bot%s/%s";
     /**

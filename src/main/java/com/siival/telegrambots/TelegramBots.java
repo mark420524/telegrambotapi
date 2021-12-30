@@ -3,7 +3,9 @@ package com.siival.telegrambots;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.resp.BaseResponse;
 
+import java.util.Map;
+
 public interface TelegramBots<T extends BaseResponse> {
 
-    T callMethod(MethodEnum method) throws  Exception  ;
+    T callMethod(MethodEnum method, Map<String,Object> params) throws  Exception  ;
 }

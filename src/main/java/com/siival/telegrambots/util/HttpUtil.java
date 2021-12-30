@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.net.Proxy;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -44,15 +46,22 @@ public class HttpUtil {
 		return null;
 	}
 	private static OkHttpClient createDefaultClient(){
-		return createDefaultClient(5L,5l);
+		return createDefaultClient(5L,5l,null);
 	}
-	private static OkHttpClient createDefaultClient(long connectTimeout,long readTimeout) {
-		OkHttpClient client = new OkHttpClient()
+
+	private static OkHttpClient createDefaultClient(Proxy proxy){
+		return createDefaultClient(5L,5l,proxy);
+	}
+	private static OkHttpClient createDefaultClient(long connectTimeout, long readTimeout, Proxy proxy) {
+		OkHttpClient.Builder  builder = new OkHttpClient()
 				.newBuilder()
 				.connectTimeout(connectTimeout, TimeUnit.SECONDS)
-				.readTimeout(readTimeout, TimeUnit.SECONDS)
-				.build();
-		return  client;
+				.readTimeout(readTimeout, TimeUnit.SECONDS);
+
+		if (proxy!=null) {
+			builder.proxy(proxy);
+		}
+		return  builder.build();
 	}
 
 	public static String createJsonParams(Map<String,Object> params) {
@@ -66,8 +75,8 @@ public class HttpUtil {
 		return "{}";
 	}
 
-	public static String postJson(String baseUrl, Map<String,Object> params) throws Exception {
-		OkHttpClient client = createDefaultClient();
+	public static String postJson(String baseUrl, Map<String,Object> params, Proxy proxy) throws Exception {
+		OkHttpClient client = createDefaultClient(proxy);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
 		RequestBody body = RequestBody.create(JSON, createJsonParams(params));
 		HttpUrl url = build.build();

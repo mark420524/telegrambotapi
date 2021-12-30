@@ -16,7 +16,7 @@ public class SendMessageMethod implements MethodInterface<BaseResponse>  {
     private Logger logger = LoggerFactory.getLogger(SendMessageMethod.class);
     @Override
     public BaseResponse executeMethod(String url, boolean useProxy, Proxy proxy, Map<String, Object> params) throws Exception {
-        String str = HttpUtil.postForm(url, params, useProxy, proxy);
+        String str = HttpUtil.postJson(url, params, useProxy, proxy);
         logger.info("sendMessage 请求获取结果数据为:{}",str);
         return JsonUtil.convertJsonToObject(str, SendMessageResponse.class);
     }

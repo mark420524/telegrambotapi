@@ -72,16 +72,14 @@ public class HttpUtil {
 				.build();
 		try {
 			Response response = client.newCall(request).execute();
-			if (!response.isSuccessful()) {
-				return null;
+			if (response.body()!=null) {
+				return  response.body().string();
 			}
-			String respStr = response.body().string();
-			return respStr;
 		}catch (Exception e){
 			//e.printStackTrace();
 			throw new RuntimeException("请求数据报错", e);
 		}
-
+		return null;
 	}
 
 	public static String postForm(String baseUrl, Map<String,Object> params, boolean useProxy,  Proxy proxy) throws Exception {

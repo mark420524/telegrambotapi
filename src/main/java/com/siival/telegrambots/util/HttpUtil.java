@@ -16,8 +16,8 @@ public class HttpUtil {
 	public static final MediaType JSON
 			= MediaType.parse("application/json; charset=utf-8");
 	
-	public static String get(String baseUrl, Map<String,Object> params) throws Exception {
-		OkHttpClient client = createDefaultClient();
+	public static String get(String baseUrl, Map<String,Object> params, boolean useProxy, Proxy proxy) throws Exception {
+		OkHttpClient client = createDefaultClient(useProxy ? proxy : null);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
 		if (params!=null) {
 			Iterator<Entry<String, Object>> it = params.entrySet().iterator();
@@ -41,9 +41,8 @@ public class HttpUtil {
 			String respStr = response.body().string();
 			return respStr;
 		}catch (Exception e){
-			e.printStackTrace();
+			throw new RuntimeException("请求数据报错", e);
 		}
-		return null;
 	}
 	private static OkHttpClient createDefaultClient(){
 		return createDefaultClient(5L,5l,null);
@@ -64,21 +63,10 @@ public class HttpUtil {
 		return  builder.build();
 	}
 
-	public static String createJsonParams(Map<String,Object> params) {
-		if (params!=null) {
-			ObjectMapper objectMapper = new ObjectMapper();
-			try {
-				return objectMapper.writeValueAsString(params);
-			} catch (JsonProcessingException e) {
-			}
-		}
-		return "{}";
-	}
-
-	public static String postJson(String baseUrl, Map<String,Object> params, Proxy proxy) throws Exception {
-		OkHttpClient client = createDefaultClient(proxy);
+	public static String postJson(String baseUrl, Map<String,Object> params,boolean useProxy,  Proxy proxy) throws Exception {
+		OkHttpClient client = createDefaultClient(useProxy ? proxy : null);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
-		RequestBody body = RequestBody.create(JSON, createJsonParams(params));
+		RequestBody body = RequestBody.create(JSON, JsonUtil.createJsonParams(params));
 		HttpUrl url = build.build();
 		Request request = new Request.Builder().url(url).post(body)
 				.build();
@@ -90,9 +78,10 @@ public class HttpUtil {
 			String respStr = response.body().string();
 			return respStr;
 		}catch (Exception e){
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw new RuntimeException("请求数据报错", e);
 		}
-		return null;
+
 	}
 
 	public static String postForm(String baseUrl, Map<String,Object> params) throws Exception {
@@ -122,9 +111,8 @@ public class HttpUtil {
 			String respStr = response.body().string();
 			return respStr;
 		}catch (Exception e){
-			e.printStackTrace();
+			throw new RuntimeException("请求数据报错", e);
 		}
-		return null;
 	}
 
 }

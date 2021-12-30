@@ -5,5 +5,5 @@ import java.util.Map;
 
 public interface MethodInterface<T> {
 
-    T executeMethod(String url, boolean useProxy, Proxy proxy, Map<String, Object> params );
+    T executeMethod(String url, boolean useProxy, Proxy proxy, Map<String, Object> params ) throws  Exception ;
 }

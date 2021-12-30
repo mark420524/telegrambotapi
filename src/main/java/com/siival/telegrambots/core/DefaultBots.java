@@ -1,12 +1,14 @@
 package com.siival.telegrambots.core;
 
+import com.siival.telegrambots.core.factory.MethodFactory;
+import com.siival.telegrambots.core.method.MethodInterface;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.resp.BaseResponse;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 
-public class DefaultBots<T extends BaseResponse> extends AbstractBots  {
+public class DefaultBots  extends AbstractBots   {
 
     public DefaultBots(String token) {
         this.token = token;
@@ -14,16 +16,17 @@ public class DefaultBots<T extends BaseResponse> extends AbstractBots  {
 
     public DefaultBots(String token, String url) {
         this(token, url, false, null);
-        this.token = token;
     }
 
     public DefaultBots(String token, boolean useProxy) {
         this.token = token;
+        this.useProxy = true;
         if (useProxy) { super.setProxy(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("127.0.0.1", 1080))); }
     }
 
     public DefaultBots(String token,String ip, int port) {
         this.token = token;
+        this.useProxy = true;
         super.setProxy(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(ip, port)));
     }
 
@@ -41,7 +44,10 @@ public class DefaultBots<T extends BaseResponse> extends AbstractBots  {
     }
 
     @Override
-    public T callMethod(MethodEnum method) {
-        return null;
+    public BaseResponse callMethod(MethodEnum method) throws  Exception {
+        String methodName = method.getMethodName();
+        String url = String.format(this.getBotUrl(), this.token, methodName);
+        MethodInterface<BaseResponse> methodInterface = MethodFactory.getMethod(method);
+        return methodInterface.executeMethod(url, this.useProxy, this.getProxy(), null);
     }
 }

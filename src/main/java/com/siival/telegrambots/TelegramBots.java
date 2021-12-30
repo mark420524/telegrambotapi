@@ -5,5 +5,5 @@ import com.siival.telegrambots.resp.BaseResponse;
 
 public interface TelegramBots<T extends BaseResponse> {
 
-    T callMethod(MethodEnum method) ;
+    T callMethod(MethodEnum method) throws  Exception  ;
 }

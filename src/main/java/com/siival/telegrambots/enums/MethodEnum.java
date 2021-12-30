@@ -9,4 +9,7 @@ public enum MethodEnum {
         this.methodName = methodName;
     }
 
+    public String getMethodName() {
+        return methodName;
+    }
 }

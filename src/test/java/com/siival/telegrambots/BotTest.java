@@ -3,7 +3,6 @@ package com.siival.telegrambots;
 import com.siival.telegrambots.core.DefaultBots;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.resp.*;
-import com.siival.telegrambots.util.JsonUtil;
 
 import java.util.HashMap;
 import java.util.Map;

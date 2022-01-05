@@ -4,7 +4,8 @@ public enum MethodEnum {
 
     GETME("getMe"),
     SENDMESSAGE("sendMessage"),
-    GETWEBHOOKINFO("getWebhookInfo")
+    GETWEBHOOKINFO("getWebhookInfo"),
+    DELETEWEBHOOK("deleteWebhook")
     ;
     String methodName;
     MethodEnum(String methodName) {

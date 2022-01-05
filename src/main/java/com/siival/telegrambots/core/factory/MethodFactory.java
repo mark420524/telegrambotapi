@@ -1,9 +1,6 @@
 package com.siival.telegrambots.core.factory;
 
-import com.siival.telegrambots.core.method.GetMeMethod;
-import com.siival.telegrambots.core.method.GetWebhookInfoMethod;
-import com.siival.telegrambots.core.method.MethodInterface;
-import com.siival.telegrambots.core.method.SendMessageMethod;
+import com.siival.telegrambots.core.method.*;
 import com.siival.telegrambots.enums.MethodEnum;
 
 public class MethodFactory {
@@ -19,6 +16,8 @@ public class MethodFactory {
                 break;
             case GETWEBHOOKINFO:
                 methodInterface = new GetWebhookInfoMethod();
+            case DELETEWEBHOOK:
+                methodInterface = new DeleteWebhookMethod();
             default:break;
 
         }

@@ -3,6 +3,7 @@ package com.siival.telegrambots;
 import com.siival.telegrambots.core.DefaultBots;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.resp.GetMeResponse;
+import com.siival.telegrambots.resp.GetWebhookResponse;
 import com.siival.telegrambots.resp.SendMessageResponse;
 import com.siival.telegrambots.util.JsonUtil;
 
@@ -13,12 +14,12 @@ public class BotTest {
 
     public static void main(String[] args) {
 
-        TelegramBots<SendMessageResponse> t = new DefaultBots("", true);
+        TelegramBots<GetWebhookResponse> t = new DefaultBots("", true);
         try {
             Map<String,Object> params = new HashMap<>();
-            params.put("chat_id", "");
-            params.put("text", "test");
-            SendMessageResponse r = t.callMethod(MethodEnum.SENDMESSAGE, params);
+//            params.put("chat_id", "");
+//            params.put("text", "test");
+            GetWebhookResponse r = t.callMethod(MethodEnum.GETWEBHOOKINFO, params);
             System.out.println(r.getResult());
         } catch (Exception e) {
             e.printStackTrace();

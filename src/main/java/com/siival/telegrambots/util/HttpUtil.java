@@ -15,7 +15,9 @@ public class HttpUtil {
 	private static final Logger logger = LoggerFactory.getLogger(HttpUtil.class);
 	public static final MediaType JSON
 			= MediaType.parse("application/json; charset=utf-8");
-	
+	public static String get(String baseUrl, Map<String,Object> params ) throws Exception {
+		return get(baseUrl, params, false, null);
+	}
 	public static String get(String baseUrl, Map<String,Object> params, boolean useProxy, Proxy proxy) throws Exception {
 		OkHttpClient client = createDefaultClient(useProxy ? proxy : null);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
@@ -35,14 +37,13 @@ public class HttpUtil {
 		.build();
 		try {
 			Response response = client.newCall(request).execute();
-			if (!response.isSuccessful()) {
-				return null;
+			if (response.body()!=null) {
+				return  response.body().string();
 			}
-			String respStr = response.body().string();
-			return respStr;
 		}catch (Exception e){
 			throw new RuntimeException("请求数据报错", e);
 		}
+		return null;
 	}
 	private static OkHttpClient createDefaultClient(){
 		return createDefaultClient(5L,5l,null);
@@ -63,6 +64,10 @@ public class HttpUtil {
 		return  builder.build();
 	}
 
+	public static String postJson(String baseUrl, Map<String,Object> params ) throws Exception {
+		return postJson(baseUrl, params, false, null);
+	}
+
 	public static String postJson(String baseUrl, Map<String,Object> params,boolean useProxy,  Proxy proxy) throws Exception {
 		OkHttpClient client = createDefaultClient(useProxy ? proxy : null);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
@@ -80,6 +85,10 @@ public class HttpUtil {
 			throw new RuntimeException("请求数据报错", e);
 		}
 		return null;
+	}
+
+	public static String postForm(String baseUrl, Map<String,Object> params ) throws Exception {
+		return postForm(baseUrl, params, false, null);
 	}
 
 	public static String postForm(String baseUrl, Map<String,Object> params, boolean useProxy,  Proxy proxy) throws Exception {
@@ -103,14 +112,13 @@ public class HttpUtil {
 				.build();
 		try {
 			Response response = client.newCall(request).execute();
-			if (!response.isSuccessful()) {
-				return null;
+			if (response.body()!=null) {
+				return  response.body().string();
 			}
-			String respStr = response.body().string();
-			return respStr;
 		}catch (Exception e){
 			throw new RuntimeException("请求数据报错", e);
 		}
+		return null;
 	}
 
 }

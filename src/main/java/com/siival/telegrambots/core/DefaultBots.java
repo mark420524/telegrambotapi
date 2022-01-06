@@ -7,7 +7,6 @@ import com.siival.telegrambots.resp.BaseResponse;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-import java.util.Map;
 
 public class DefaultBots  extends AbstractBots   {
 
@@ -46,7 +45,7 @@ public class DefaultBots  extends AbstractBots   {
 
 
     @Override
-    public BaseResponse callMethod(MethodEnum method, Map  params) throws  Exception {
+    public BaseResponse callMethod(MethodEnum method, Object params ) throws  Exception {
         String methodName = method.getMethodName();
         String url = String.format(this.getBotUrl(), this.token, methodName);
         MethodInterface<BaseResponse> methodInterface = MethodFactory.getMethod(method);

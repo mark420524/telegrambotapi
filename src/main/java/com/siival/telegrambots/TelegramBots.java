@@ -7,5 +7,5 @@ import java.util.Map;
 
 public interface TelegramBots<T extends BaseResponse> {
 
-    T callMethod(MethodEnum method, Map<String,Object> params) throws  Exception  ;
+    T callMethod(MethodEnum method, Object params) throws  Exception  ;
 }

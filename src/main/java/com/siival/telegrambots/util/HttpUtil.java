@@ -68,10 +68,22 @@ public class HttpUtil {
 		return postJson(baseUrl, params, false, null);
 	}
 
+	public static String postJson(String baseUrl, Object params ) throws Exception {
+		return postJson(baseUrl,  JsonUtil.createJsonParams(params), false, null);
+	}
+
 	public static String postJson(String baseUrl, Map<String,Object> params,boolean useProxy,  Proxy proxy) throws Exception {
+		return postJson(baseUrl, JsonUtil.createJsonParams(params), useProxy, proxy);
+	}
+
+	public static String postJson(String baseUrl, Object params,boolean useProxy,  Proxy proxy) throws Exception {
+		return postJson(baseUrl, JsonUtil.createJsonParams(params), useProxy, proxy);
+	}
+
+	public static String postJson(String baseUrl, String json,boolean useProxy,  Proxy proxy) throws Exception {
 		OkHttpClient client = createDefaultClient(useProxy ? proxy : null);
 		HttpUrl.Builder  build = HttpUrl.parse(baseUrl).newBuilder();
-		RequestBody body = RequestBody.create(JSON, JsonUtil.createJsonParams(params));
+		RequestBody body = RequestBody.create(JSON, json);
 		HttpUrl url = build.build();
 		Request request = new Request.Builder().url(url).post(body)
 				.build();

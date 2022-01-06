@@ -28,6 +28,14 @@ public class BotTest {
             command1.setCommand("welcome");
             command1.setDescription("hi buddy, welcome to my bot");
             list.add(command1);
+            BotCommand command2 = new BotCommand();
+            command2.setCommand("help");
+            command2.setDescription("this is a help message");
+            list.add(command2);
+            BotCommand command3 = new BotCommand();
+            command3.setCommand("justgo");
+            command3.setDescription("hi buddy, just go go go");
+            list.add(command3);
             params.setCommands(list);
             BooleanResponse r = t.callMethod(MethodEnum.SETMYCOMMANDS, params);
             System.out.println(r);

@@ -1,16 +1,11 @@
 package com.siival.telegrambots.resp;
 
+import com.siival.telegrambots.core.types.Message;
 import lombok.Data;
 
 @Data
 public class SendMessageResponse extends BaseResponse {
 
-    private ResponseResult result;
+    private Message result;
 
-    @Data
-    private class ResponseResult {
-        private Long message_id;
-        private Long date;
-
-    }
 }

@@ -4,7 +4,7 @@
 
 ### 使用方法
 
-调用不同的`command`，返回不同`response`
+调用不同的`method`，携带不同的`params`，返回不同的`response`
 
 ```java
 TelegramBots<BooleanResponse> t = new DefaultBots(token, true);

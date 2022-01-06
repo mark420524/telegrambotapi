@@ -1,7 +1,6 @@
 package com.siival.telegrambots.core;
 
 import com.siival.telegrambots.TelegramBots;
-import com.siival.telegrambots.resp.BaseResponse;
 
 import java.net.Proxy;
 

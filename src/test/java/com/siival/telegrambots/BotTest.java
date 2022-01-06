@@ -11,12 +11,12 @@ public class BotTest {
 
     public static void main(String[] args) {
 
-        TelegramBots<DeleteWebhookResponse> t = new DefaultBots("", true);
+        TelegramBots<GetMyCommandsResponse> t = new DefaultBots("", true);
         try {
             Map<String,Object> params = new HashMap<>();
 //            params.put("chat_id", "");
 //            params.put("text", "test");
-            DeleteWebhookResponse r = t.callMethod(MethodEnum.DELETEWEBHOOK, params);
+            GetMyCommandsResponse r = t.callMethod(MethodEnum.GETMYCOMMANDS, params);
             System.out.println(r);
         } catch (Exception e) {
             e.printStackTrace();

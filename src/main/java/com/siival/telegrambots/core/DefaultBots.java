@@ -21,7 +21,7 @@ public class DefaultBots  extends AbstractBots   {
 
     public DefaultBots(String token, boolean useProxy) {
         this.token = token;
-        this.useProxy = true;
+        this.useProxy = useProxy;
         if (useProxy) { super.setProxy(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("127.0.0.1", 1080))); }
     }
 

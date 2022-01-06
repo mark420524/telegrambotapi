@@ -16,8 +16,13 @@ public class MethodFactory {
                 break;
             case GETWEBHOOKINFO:
                 methodInterface = new GetWebhookInfoMethod();
+                break;
             case DELETEWEBHOOK:
                 methodInterface = new DeleteWebhookMethod();
+                break;
+            case GETMYCOMMANDS:
+                methodInterface = new GetMyCommandsMethod();
+                break;
             default:break;
 
         }

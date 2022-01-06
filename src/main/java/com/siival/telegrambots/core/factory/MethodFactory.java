@@ -23,6 +23,9 @@ public class MethodFactory {
             case GETMYCOMMANDS:
                 methodInterface = new GetMyCommandsMethod();
                 break;
+            case SETMYCOMMANDS:
+                methodInterface = new SetMyCommandsMethod();
+                break;
             default:break;
 
         }

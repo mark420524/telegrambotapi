@@ -55,6 +55,10 @@ public class BotTest {
         }
     }
 
+    public static void setWebHook() {
+
+    }
+
 
 
     public static void main(String[] args) {

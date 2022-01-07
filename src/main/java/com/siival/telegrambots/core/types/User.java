@@ -6,7 +6,7 @@ import lombok.Data;
 public class User {
 
     private Long id;
-    private boolean is_bot;
+    private Boolean is_bot;
     private String first_name;
     private String last_name;
     private String username;

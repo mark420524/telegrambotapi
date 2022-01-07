@@ -3,6 +3,8 @@ package com.siival.telegrambots;
 import com.siival.telegrambots.core.DefaultBots;
 import com.siival.telegrambots.core.types.BotCommand;
 import com.siival.telegrambots.enums.MethodEnum;
+import com.siival.telegrambots.enums.TextFormattingEnum;
+import com.siival.telegrambots.req.SendMessageParams;
 import com.siival.telegrambots.req.SetCommandParams;
 import com.siival.telegrambots.req.SetWebhookParams;
 import com.siival.telegrambots.resp.*;
@@ -79,6 +81,43 @@ public class BotTest {
         try {
             Object params = null;
             GetWebhookResponse r = t.callMethod(MethodEnum.GETWEBHOOKINFO, params);
+            System.out.println(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testSendMessage() {
+        TelegramBots<SendMessageResponse> t = new DefaultBots(token, true);
+        try {
+            SendMessageParams params = new SendMessageParams();
+            //use chat id
+            params.setChat_id("");
+            params.setText(
+                    "*siival bot*\n" +
+                    "_siival bot ,telgram bot api to build your bot _\n" +
+
+                    "[see me](tg://user?id=5045304500)\n" +
+
+                    "```java\n" +
+                    "TelegramBots<BooleanResponse> t = new DefaultBots(token, true);\n" +
+                            "try {\n" +
+                            "    SetCommandParams params = new SetCommandParams();\n" +
+                            "    BooleanResponse r = t.callMethod(MethodEnum.SETMYCOMMANDS, params);\n" +
+                            "    System.out.println(r);\n" +
+                            "} catch (Exception e) {\n" +
+                            "    e.printStackTrace();\n" +
+                            "}\n" +
+                    "```" +
+                    "查看更多使用方法请参考："+
+                    "[telegrambotapi](https://github.com/mark420524/telegrambotapi.git)\n"
+
+                    );
+            params.setParse_mode(TextFormattingEnum.MarkdownV2.getName());
+            params.setAllow_sending_without_reply(false);
+            params.setDisable_web_page_preview(true);
+            SendMessageResponse r = t.callMethod(MethodEnum.SENDMESSAGE, params);
             System.out.println(r);
         }catch (Exception e){
             e.printStackTrace();

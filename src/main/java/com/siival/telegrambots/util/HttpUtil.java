@@ -86,7 +86,7 @@ public class HttpUtil {
 		RequestBody body = RequestBody.create(JSON, json);
 		HttpUrl url = build.build();
 		if (logger.isDebugEnabled()) {
-			logger.debug("请求参数为baseUrl:{},json字符串为:{}",baseUrl,json);
+			logger.debug("请求参数为baseUrl:{} , json字符串为:{}",baseUrl,json);
 		}
 
 		Request request = new Request.Builder().url(url).post(body)

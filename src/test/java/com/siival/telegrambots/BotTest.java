@@ -4,7 +4,9 @@ import com.siival.telegrambots.core.DefaultBots;
 import com.siival.telegrambots.core.types.BotCommand;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.req.SetCommandParams;
+import com.siival.telegrambots.req.SetWebhookParams;
 import com.siival.telegrambots.resp.*;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +17,8 @@ public class BotTest {
 
     private static final String token = "";
 
-    private static void setCommands() {
+    @Test
+    public  void testSetCommands() {
         TelegramBots<BooleanResponse> t = new DefaultBots(token, true);
         try {
             SetCommandParams params = new SetCommandParams();
@@ -44,7 +47,8 @@ public class BotTest {
         }
     }
 
-    public static void getCommands() {
+    @Test
+    public   void testGetCommands() {
         TelegramBots<GetMyCommandsResponse> t = new DefaultBots(token, true);
         try {
             Object params = null;
@@ -55,14 +59,29 @@ public class BotTest {
         }
     }
 
-    public static void setWebHook() {
 
+    @Test
+    public void testSetWebHook() {
+        TelegramBots<BooleanResponse> t = new DefaultBots(token, true);
+        try {
+            SetWebhookParams params = new SetWebhookParams();
+            params.setUrl(String.format("https://chat.siival.com/webhook/%s",token ));
+            BooleanResponse r = t.callMethod(MethodEnum.SETWEBHOOK, params);
+            System.out.println(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-
-
-    public static void main(String[] args) {
-
-        getCommands();
+    @Test
+    public void testGetWebHook() {
+        TelegramBots<GetWebhookResponse> t = new DefaultBots(token, true);
+        try {
+            Object params = null;
+            GetWebhookResponse r = t.callMethod(MethodEnum.GETWEBHOOKINFO, params);
+            System.out.println(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -26,6 +26,9 @@ public class MethodFactory {
             case SETMYCOMMANDS:
                 methodInterface = new SetMyCommandsMethod();
                 break;
+            case SETWEBHOOK:
+                methodInterface = new SetWebhookMethod();
+                break;
             default:break;
 
         }

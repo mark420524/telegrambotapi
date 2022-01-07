@@ -7,7 +7,8 @@ public enum MethodEnum {
     GETWEBHOOKINFO("getWebhookInfo"),
     DELETEWEBHOOK("deleteWebhook"),
     GETMYCOMMANDS("getMyCommands"),
-    SETMYCOMMANDS("setMyCommands")
+    SETMYCOMMANDS("setMyCommands"),
+    SETWEBHOOK("setWebhook")
     ;
     String methodName;
     MethodEnum(String methodName) {

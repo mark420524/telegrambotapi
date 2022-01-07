@@ -7,8 +7,6 @@ import com.siival.telegrambots.core.types.markup.ReplyKeyboardRemove;
 
 public abstract class AbstractReplyMarkup {
 
-    private AbstractReplyMarkup(){}
-
 
     public static InlineKeyboardMarkup buildInlineKeyboardMarkup() {
         return new InlineKeyboardMarkup();

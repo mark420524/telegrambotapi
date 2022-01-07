@@ -2,6 +2,9 @@ package com.siival.telegrambots;
 
 import com.siival.telegrambots.core.DefaultBots;
 import com.siival.telegrambots.core.types.BotCommand;
+import com.siival.telegrambots.core.types.InlineKeyboardButton;
+import com.siival.telegrambots.core.types.abst.AbstractReplyMarkup;
+import com.siival.telegrambots.core.types.markup.InlineKeyboardMarkup;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.enums.TextFormattingEnum;
 import com.siival.telegrambots.req.SendMessageParams;
@@ -117,6 +120,50 @@ public class BotTest {
             params.setParse_mode(TextFormattingEnum.MarkdownV2.getName());
             params.setAllow_sending_without_reply(false);
             params.setDisable_web_page_preview(true);
+            SendMessageResponse r = t.callMethod(MethodEnum.SENDMESSAGE, params);
+            System.out.println(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void testSendMessageV2() {
+        TelegramBots<SendMessageResponse> t = new DefaultBots(token, true);
+        try {
+            SendMessageParams params = new SendMessageParams();
+            //use chat id
+            params.setChat_id("696374143");
+            params.setText(
+                    "*siival bot*\n" +
+                            "[mark](tg://user?id=696374143)\n" +
+
+                            "bingo:\n" +
+                            "测试\n" +
+                            "" +
+                            "查看更多使用方法请参考："+
+                            "[telegrambotapi](https://github.com/mark420524/telegrambotapi.git)\n"
+
+            );
+            params.setParse_mode(TextFormattingEnum.MarkdownV2.getName());
+            params.setAllow_sending_without_reply(false);
+            params.setDisable_web_page_preview(true);
+//            params.setReply_to_message_id(12L);
+            InlineKeyboardMarkup markup = AbstractReplyMarkup.buildInlineKeyboardMarkup();
+            List<InlineKeyboardButton> inlineKeyboard = new ArrayList<>();
+            InlineKeyboardButton button = new InlineKeyboardButton();
+            button.setText("确认");
+            button.setUrl("tg://user?id=5045304500");
+            inlineKeyboard.add(button);
+            InlineKeyboardButton button1 = new InlineKeyboardButton();
+            button1.setText("帅哥");
+            button1.setUrl("tg://user?id=5045304500");
+            inlineKeyboard.add(button1);
+            List<List<InlineKeyboardButton>> dlist = new ArrayList<>();
+            dlist.add(inlineKeyboard);
+            markup.setInline_keyboard(dlist);
+            params.setReply_markup(markup);
             SendMessageResponse r = t.callMethod(MethodEnum.SENDMESSAGE, params);
             System.out.println(r);
         }catch (Exception e){

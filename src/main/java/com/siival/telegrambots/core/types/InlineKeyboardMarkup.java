@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class InlineKeyboardMarkup {
 
-    private List<InlineKeyboardButton> inline_keyboard;
+    private List<List<InlineKeyboardButton>> inline_keyboard;
 }

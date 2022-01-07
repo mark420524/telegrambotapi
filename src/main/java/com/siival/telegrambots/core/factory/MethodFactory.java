@@ -29,6 +29,9 @@ public class MethodFactory {
             case SETWEBHOOK:
                 methodInterface = new SetWebhookMethod();
                 break;
+            case DELETEMESSAGE:
+                methodInterface = new DeleteMessageMethod();
+                break;
             default:break;
 
         }

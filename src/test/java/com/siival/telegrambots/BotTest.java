@@ -7,6 +7,7 @@ import com.siival.telegrambots.core.types.abst.AbstractReplyMarkup;
 import com.siival.telegrambots.core.types.markup.InlineKeyboardMarkup;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.enums.TextFormattingEnum;
+import com.siival.telegrambots.req.DeleteMessageParams;
 import com.siival.telegrambots.req.SendMessageParams;
 import com.siival.telegrambots.req.SetCommandParams;
 import com.siival.telegrambots.req.SetWebhookParams;
@@ -61,6 +62,20 @@ public class BotTest {
             System.out.println(r);
         }catch (Exception e){
 
+        }
+    }
+
+    @Test
+    public void testDeleteMessage() {
+        TelegramBots<BooleanResponse> t = new DefaultBots(token, true);
+        try {
+            DeleteMessageParams params = new DeleteMessageParams();
+            params.setChat_id("696374143");
+            params.setMessage_id(21L);
+            BooleanResponse r = t.callMethod(MethodEnum.DELETEMESSAGE, params);
+            System.out.println(r);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

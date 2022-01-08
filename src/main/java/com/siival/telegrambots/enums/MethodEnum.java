@@ -11,7 +11,8 @@ public enum MethodEnum {
     SETWEBHOOK("setWebhook"),
     DELETEMESSAGE("deleteMessage"),
     BANCHATMEMBER("banChatMember"),
-    UNBANCHATMEMBER("unbanChatMember")
+    UNBANCHATMEMBER("unbanChatMember"),
+    SENDPOLL("sendPoll")
     ;
     String methodName;
     MethodEnum(String methodName) {

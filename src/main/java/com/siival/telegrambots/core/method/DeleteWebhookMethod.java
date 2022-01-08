@@ -2,20 +2,18 @@ package com.siival.telegrambots.core.method;
 
 import com.siival.telegrambots.resp.BaseResponse;
 import com.siival.telegrambots.resp.DeleteWebhookResponse;
-import com.siival.telegrambots.util.HttpUtil;
 import com.siival.telegrambots.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.Proxy;
 
-public class DeleteWebhookMethod implements MethodInterface<BaseResponse> {
+public class DeleteWebhookMethod  extends AbstractMethod {
 
     private Logger logger = LoggerFactory.getLogger(DeleteWebhookMethod.class);
+
     @Override
-    public BaseResponse executeMethod(String url, boolean useProxy, Proxy proxy, Object params) throws Exception {
-        String str = HttpUtil.postJson(url, params, useProxy, proxy);
-        logger.info("deleteWebhook 请求获取结果数据为:{}",str);
-        return JsonUtil.convertJsonToObject(str, DeleteWebhookResponse.class);
+    public BaseResponse buildResponse(String resp) throws Exception {
+        logger.info("deleteWebhook 请求获取结果数据为:{}",resp);
+        return JsonUtil.convertJsonToObject(resp, DeleteWebhookResponse.class);
     }
 }

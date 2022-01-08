@@ -79,6 +79,18 @@ public class BotTest {
         }
     }
 
+    @Test
+    public void testGetMe() {
+        TelegramBots<GetMeResponse> t = new DefaultBots(token, true);
+        try {
+            Object params = null;
+            GetMeResponse r = t.callMethod(MethodEnum.GETME, params);
+            System.out.println(r);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     @Test
     public void testSetWebHook() {
@@ -149,7 +161,7 @@ public class BotTest {
         try {
             SendMessageParams params = new SendMessageParams();
             //use chat id
-            params.setChat_id("696374143");
+            params.setChat_id("5020116316");
             params.setText(
                     "*siival bot*\n" +
                             "[mark](tg://user?id=696374143)\n" +
@@ -158,13 +170,13 @@ public class BotTest {
                             "测试\n" +
                             "" +
                             "查看更多使用方法请参考："+
-                            "[telegrambotapi](https://github.com/mark420524/telegrambotapi.git)\n"
+                            "[invitelink](https://t.me/+_Q1-pQumqIFhMzc9)\n"
 
             );
             params.setParse_mode(TextFormattingEnum.MarkdownV2.getName());
             params.setAllow_sending_without_reply(false);
             params.setDisable_web_page_preview(true);
-//            params.setReply_to_message_id(12L);
+//            params.setReply_to_message_id(25L);
             InlineKeyboardMarkup markup = AbstractReplyMarkup.buildInlineKeyboardMarkup();
             List<InlineKeyboardButton> inlineKeyboard = new ArrayList<>();
             InlineKeyboardButton button = new InlineKeyboardButton();
@@ -178,7 +190,7 @@ public class BotTest {
             List<List<InlineKeyboardButton>> dlist = new ArrayList<>();
             dlist.add(inlineKeyboard);
             markup.setInline_keyboard(dlist);
-            params.setReply_markup(markup);
+//            params.setReply_markup(markup);
             SendMessageResponse r = t.callMethod(MethodEnum.SENDMESSAGE, params);
             System.out.println(r);
         }catch (Exception e){

@@ -32,6 +32,12 @@ public class MethodFactory {
             case DELETEMESSAGE:
                 methodInterface = new DeleteMessageMethod();
                 break;
+            case BANCHATMEMBER:
+                methodInterface = new BanChatMemberMethod();
+                break;
+            case UNBANCHATMEMBER:
+                methodInterface = new UnBanChatMemberMethod();
+                break;
             default:break;
 
         }

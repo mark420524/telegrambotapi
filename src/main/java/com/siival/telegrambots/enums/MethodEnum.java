@@ -9,7 +9,9 @@ public enum MethodEnum {
     GETMYCOMMANDS("getMyCommands"),
     SETMYCOMMANDS("setMyCommands"),
     SETWEBHOOK("setWebhook"),
-    DELETEMESSAGE("deleteMessage")
+    DELETEMESSAGE("deleteMessage"),
+    BANCHATMEMBER("banChatMember"),
+    UNBANCHATMEMBER("unbanChatMember")
     ;
     String methodName;
     MethodEnum(String methodName) {

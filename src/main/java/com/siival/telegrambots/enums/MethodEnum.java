@@ -15,7 +15,10 @@ public enum MethodEnum {
     SENDPOLL("sendPoll"),
     SETCHATTITLE("setChatTitle"),
     SETCHATDESCRIPTION("setChatDescription"),
-    SETCHATPERMISSIONSMETHOD("setChatPermissions")
+    SETCHATPERMISSIONSMETHOD("setChatPermissions"),
+    PINCHATMESSAGE("pinChatMessage"),
+    UNPINCHATMESSAGE("unpinChatMessage"),
+    UNPINALLCHATMESSAGE("unpinAllChatMessages")
     ;
     String methodName;
     MethodEnum(String methodName) {

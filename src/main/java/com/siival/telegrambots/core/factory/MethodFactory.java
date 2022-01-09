@@ -50,6 +50,15 @@ public class MethodFactory {
             case SETCHATPERMISSIONSMETHOD:
                 methodInterface = new SetChatPermissionsMethod();
                 break;
+            case PINCHATMESSAGE:
+                methodInterface = new PinChatMessageMethod();
+                break;
+            case UNPINCHATMESSAGE:
+                methodInterface = new UnpinChatMessageMethod();
+                break;
+            case UNPINALLCHATMESSAGE:
+                methodInterface = new UnpinAllChatMessagesMethod();
+                break;
             default:break;
 
         }

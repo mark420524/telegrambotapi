@@ -8,6 +8,7 @@ public enum MethodEnum {
     DELETEWEBHOOK("deleteWebhook"),
     GETMYCOMMANDS("getMyCommands"),
     SETMYCOMMANDS("setMyCommands"),
+    DELETEMYCOMMANDS("deleteMyCommands"),
     SETWEBHOOK("setWebhook"),
     DELETEMESSAGE("deleteMessage"),
     BANCHATMEMBER("banChatMember"),

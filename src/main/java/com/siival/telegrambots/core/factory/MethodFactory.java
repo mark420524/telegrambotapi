@@ -59,6 +59,9 @@ public class MethodFactory {
             case UNPINALLCHATMESSAGE:
                 methodInterface = new UnpinAllChatMessagesMethod();
                 break;
+            case DELETEMYCOMMANDS:
+                methodInterface = new DeleteMyCommandsMethod();
+                break;
             default:break;
 
         }

@@ -38,6 +38,18 @@ public class MethodFactory {
             case UNBANCHATMEMBER:
                 methodInterface = new UnBanChatMemberMethod();
                 break;
+            case SENDPOLL:
+                methodInterface = new SendPollMethod();
+                break;
+            case SETCHATTITLE:
+                methodInterface = new SetChatTitleMethod();
+                break;
+            case SETCHATDESCRIPTION:
+                methodInterface = new SetChatDescriptionMethod();
+                break;
+            case SETCHATPERMISSIONSMETHOD:
+                methodInterface = new SetChatPermissionsMethod();
+                break;
             default:break;
 
         }

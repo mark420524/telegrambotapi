@@ -12,7 +12,10 @@ public enum MethodEnum {
     DELETEMESSAGE("deleteMessage"),
     BANCHATMEMBER("banChatMember"),
     UNBANCHATMEMBER("unbanChatMember"),
-    SENDPOLL("sendPoll")
+    SENDPOLL("sendPoll"),
+    SETCHATTITLE("setChatTitle"),
+    SETCHATDESCRIPTION("setChatDescription"),
+    SETCHATPERMISSIONSMETHOD("setChatPermissions")
     ;
     String methodName;
     MethodEnum(String methodName) {

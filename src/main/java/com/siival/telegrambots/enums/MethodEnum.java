@@ -19,7 +19,9 @@ public enum MethodEnum {
     SETCHATPERMISSIONSMETHOD("setChatPermissions"),
     PINCHATMESSAGE("pinChatMessage"),
     UNPINCHATMESSAGE("unpinChatMessage"),
-    UNPINALLCHATMESSAGE("unpinAllChatMessages")
+    UNPINALLCHATMESSAGE("unpinAllChatMessages"),
+    RESTRICTCHATMEMBER("restrictChatMember"),
+    PROMOTECHATMEMBER("promoteChatMember")
     ;
     String methodName;
     MethodEnum(String methodName) {

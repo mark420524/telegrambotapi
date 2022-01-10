@@ -62,6 +62,12 @@ public class MethodFactory {
             case DELETEMYCOMMANDS:
                 methodInterface = new DeleteMyCommandsMethod();
                 break;
+            case RESTRICTCHATMEMBER:
+                methodInterface = new RestrictChatMemberMethod();
+                break;
+            case PROMOTECHATMEMBER:
+                methodInterface = new PromoteChatMemberMethod();
+                break;
             default:break;
 
         }

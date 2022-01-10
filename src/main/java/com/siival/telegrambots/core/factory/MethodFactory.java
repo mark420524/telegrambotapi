@@ -68,6 +68,12 @@ public class MethodFactory {
             case PROMOTECHATMEMBER:
                 methodInterface = new PromoteChatMemberMethod();
                 break;
+            case SENDGAME:
+                methodInterface = new SendGameMethod();
+                break;
+            case SETGAMESCORE:
+                methodInterface = new SetGameScoreMethod();
+                break;
             default:break;
 
         }

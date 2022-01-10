@@ -21,7 +21,9 @@ public enum MethodEnum {
     UNPINCHATMESSAGE("unpinChatMessage"),
     UNPINALLCHATMESSAGE("unpinAllChatMessages"),
     RESTRICTCHATMEMBER("restrictChatMember"),
-    PROMOTECHATMEMBER("promoteChatMember")
+    PROMOTECHATMEMBER("promoteChatMember"),
+    SENDGAME("sendGame"),
+    SETGAMESCORE("setGameScore")
     ;
     String methodName;
     MethodEnum(String methodName) {

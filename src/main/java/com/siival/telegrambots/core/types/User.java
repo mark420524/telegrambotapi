@@ -1,12 +1,14 @@
 package com.siival.telegrambots.core.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class User {
 
     private Long id;
-    private Boolean is_bot;
+    @JsonProperty("is_bot")
+    private boolean  bot;
     private String first_name;
     private String last_name;
     private String username;

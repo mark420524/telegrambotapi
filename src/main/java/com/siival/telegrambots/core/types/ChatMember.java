@@ -1,5 +1,6 @@
 package com.siival.telegrambots.core.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -7,7 +8,8 @@ public class ChatMember {
     //owner start
     private String status;
     private User user;
-    private boolean is_anonymous;
+    @JsonProperty("is_anonymous")
+    private boolean  anonymous;
     private String custom_title;
     //owner end
 
@@ -26,7 +28,8 @@ public class ChatMember {
     //administrator end
 
     //restrict start
-    private boolean is_member;
+    @JsonProperty("is_member")
+    private boolean member;
     private boolean can_send_messages;
     private boolean can_send_media_messages;
     private boolean can_send_polls;
@@ -34,4 +37,5 @@ public class ChatMember {
     private boolean can_add_web_page_previews;
     private long until_date;
     //restrict end
+
 }

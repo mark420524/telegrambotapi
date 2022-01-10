@@ -1,5 +1,6 @@
 package com.siival.telegrambots.core.types;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class Message {
     private String forward_signature;
     private String forward_sender_name;
     private long forward_date;
-    private boolean is_automatic_forward;
+    @JsonProperty("is_automatic_forward")
+    private boolean automatic_forward;
     private Message reply_to_message;
     private User via_bot;
     private long edit_date;

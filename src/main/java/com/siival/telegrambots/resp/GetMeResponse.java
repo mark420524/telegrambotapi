@@ -1,5 +1,6 @@
 package com.siival.telegrambots.resp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -10,7 +11,8 @@ public class GetMeResponse extends BaseResponse {
     @Data
     private class ResponseResult {
         private Long id;
-        private Boolean is_bot;
+        @JsonProperty("is_bot")
+        private boolean  bot;
         private String first_name;
         private String username;
         private boolean  can_join_groups;

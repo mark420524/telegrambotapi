@@ -74,6 +74,9 @@ public class MethodFactory {
             case SETGAMESCORE:
                 methodInterface = new SetGameScoreMethod();
                 break;
+            case GETGAMEHIGHSCCORES:
+                methodInterface = new GetGameHighScoresMethod();
+                break;
             default:break;
 
         }

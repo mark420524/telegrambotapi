@@ -23,7 +23,8 @@ public enum MethodEnum {
     RESTRICTCHATMEMBER("restrictChatMember"),
     PROMOTECHATMEMBER("promoteChatMember"),
     SENDGAME("sendGame"),
-    SETGAMESCORE("setGameScore")
+    SETGAMESCORE("setGameScore"),
+    GETGAMEHIGHSCCORES("getGameHighScores"),
     ;
     String methodName;
     MethodEnum(String methodName) {

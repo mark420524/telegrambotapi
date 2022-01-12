@@ -14,13 +14,6 @@ public abstract class AbstractBots  implements TelegramBots   {
     private Proxy proxy;
     protected String token;
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
     public Proxy getProxy() {
         return proxy;
     }

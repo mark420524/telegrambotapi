@@ -2,11 +2,12 @@ package com.siival.telegrambots.core.factory;
 
 import com.siival.telegrambots.core.method.*;
 import com.siival.telegrambots.enums.MethodEnum;
+import com.siival.telegrambots.resp.BaseResponse;
 
 public class MethodFactory {
 
-    public  static MethodInterface  getMethod(MethodEnum methodEnum) {
-        MethodInterface methodInterface = null;
+    public  static MethodInterface<BaseResponse>   getMethod(MethodEnum methodEnum) {
+        MethodInterface<BaseResponse> methodInterface = null;
         switch (methodEnum){
             case GETME:
                 methodInterface = new GetMeMethod() ;

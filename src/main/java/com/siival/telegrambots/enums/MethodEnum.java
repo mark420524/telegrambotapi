@@ -25,6 +25,8 @@ public enum MethodEnum {
     SENDGAME("sendGame"),
     SETGAMESCORE("setGameScore"),
     GETGAMEHIGHSCCORES("getGameHighScores"),
+    LEAVECHAT("leaveChat"),
+    GETCHAT("getChat")
     ;
     String methodName;
     MethodEnum(String methodName) {

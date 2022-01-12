@@ -78,6 +78,12 @@ public class MethodFactory {
             case GETGAMEHIGHSCCORES:
                 methodInterface = new GetGameHighScoresMethod();
                 break;
+            case LEAVECHAT:
+                methodInterface = new LeaveChatMethod();
+                break;
+            case GETCHAT:
+                methodInterface = new GetChatMethod();
+                break;
             default:break;
 
         }

@@ -8,7 +8,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.siival.telegrambots.resp.SendMessageResponse;
 
 public class JsonUtil {
-
+    /**
+     * @author mark
+     * @description 将类转为换json字符串
+     * @date 2022/1/13 21:57
+     * @param params
+     * @return java.lang.String
+     */
     public static String createJsonParams(Object params) {
         if (params!=null) {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -21,7 +27,14 @@ public class JsonUtil {
         return "{}";
     }
 
-
+    /**
+     * @author mark
+     * @description 将json字符串转换为对应的BaseResponse
+     * @date 2022/1/13 21:57
+     * @param json
+     * @param clazz
+     * @return T
+     */
     public static <T> T convertJsonToObject(String json,Class<T> clazz) {
         if (json==null) {
             return null;

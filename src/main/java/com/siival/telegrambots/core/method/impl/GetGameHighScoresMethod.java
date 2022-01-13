@@ -1,5 +1,6 @@
-package com.siival.telegrambots.core.method;
+package com.siival.telegrambots.core.method.impl;
 
+import com.siival.telegrambots.core.method.AbstractMethod;
 import com.siival.telegrambots.resp.BaseResponse;
 import com.siival.telegrambots.resp.GetGameHighScoresResponse;
 import com.siival.telegrambots.util.JsonUtil;

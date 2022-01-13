@@ -1,5 +1,6 @@
-package com.siival.telegrambots.core.method;
+package com.siival.telegrambots.core.method.impl;
 
+import com.siival.telegrambots.core.method.AbstractMethod;
 import com.siival.telegrambots.resp.BaseResponse;
 import com.siival.telegrambots.resp.GetMeResponse;
 import com.siival.telegrambots.util.JsonUtil;
@@ -7,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class GetMeMethod  extends AbstractMethod   {
+public class GetMeMethod  extends AbstractMethod {
 
     private Logger logger = LoggerFactory.getLogger(GetMeMethod.class);
 

@@ -1,6 +1,7 @@
 package com.siival.telegrambots.core.factory;
 
 import com.siival.telegrambots.core.method.*;
+import com.siival.telegrambots.core.method.impl.*;
 import com.siival.telegrambots.enums.MethodEnum;
 import com.siival.telegrambots.resp.BaseResponse;
 
